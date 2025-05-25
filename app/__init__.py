@@ -14,6 +14,7 @@ def create_app():
     app.config['MYSQL_USER'] = os.getenv('MYSQL_USER', 'root')
     app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_PASSWORD', '050503')
     app.config['MYSQL_DB'] = os.getenv('MYSQL_DB', 'zapachi_db')
+    app.config['MYSQL_PORT'] = int(os.getenv('MYSQL_PORT', 3306))
 
     mysql.init_app(app)
 
