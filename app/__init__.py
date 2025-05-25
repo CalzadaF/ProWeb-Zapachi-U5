@@ -8,7 +8,8 @@ import os
 
 def create_app():
     app = Flask(__name__)
-    app.secret_key = 'zapachi_puro_ct'
+    app.secret_key = os.getenv('SECRET_KEY', 'dev_key')
+
 
     app.config['MYSQL_HOST'] = os.getenv('MYSQL_HOST', 'localhost')
     app.config['MYSQL_USER'] = os.getenv('MYSQL_USER', 'root')
