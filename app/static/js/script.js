@@ -9,10 +9,28 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // 🔹 BOTÓN PARA ABRIR/CERRAR LA CALCULADORA
-    const toggleBtn = document.getElementById("toggleCalculator");
-    const calculator = document.getElementById("calculator");
-    const closeBtn = document.getElementById("closeCalculator");
+    // Es un evento que esta escuchando si el usuario oprime el boton "Nosotros"
+    window.addEventListener("scroll", function () { 
+        const btnNosotros = document.getElementById("btnNosotros");
+        const sectionNosotros = document.getElementById("nosotros");
+    
+        if (btnNosotros && sectionNosotros) { // Obtiene la posición de la sección "Nosotros"
+            const sectionTop = sectionNosotros.getBoundingClientRect().top; // Obtiene la altura de la ventana
+            const windowHeight = window.innerHeight;
+
+            // Oculta el botón cuando la sección está visible
+            if (sectionTop < windowHeight / 2) {
+                btnNosotros.style.display = "none";
+            } else {
+                btnNosotros.style.display = "block";
+            }
+        }
+    });
+
+    ///// BOTÓN PARA ABRIR/CERRAR LA CALCULADORA
+    const toggleBtn = document.getElementById("toggleCalculator"); // Botón para abrir/cerrar la calculadora
+    const calculator = document.getElementById("calculator"); // Contenedor de la calculadora
+    const closeBtn = document.getElementById("closeCalculator"); // Botón para cerrar la calculadora 
 
     if (toggleBtn && calculator) {
         toggleBtn.addEventListener("click", function () {
@@ -24,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // 🔹 FUNCIONALIDAD DE LA CALCULADORA
+    ///// 🔹 FUNCIONALIDAD DE LA CALCULADORA
     const display = document.getElementById("calc-display");
     const buttons = document.querySelectorAll(".calc-btn");
     let expression = "";
@@ -53,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // 🔹 HACER LA CALCULADORA ARRASTRABLE
+    ///// HACER LA CALCULADORA ARRASTRABLE
     let isDragging = false, offsetX, offsetY;
 
     if (calculator) {
@@ -73,22 +91,5 @@ document.addEventListener("DOMContentLoaded", function () {
         document.addEventListener("mouseup", function () {
             isDragging = false;
         });
-    }
-});
-
-window.addEventListener("scroll", function () {
-    const btnNosotros = document.getElementById("btnNosotros");
-    const sectionNosotros = document.getElementById("nosotros");
-
-    if (btnNosotros && sectionNosotros) {
-        const sectionTop = sectionNosotros.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-
-        // Oculta el botón cuando la sección está visible
-        if (sectionTop < windowHeight / 2) {
-            btnNosotros.style.display = "none";
-        } else {
-            btnNosotros.style.display = "block";
-        }
     }
 });
