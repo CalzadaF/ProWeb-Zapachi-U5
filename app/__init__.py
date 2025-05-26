@@ -9,10 +9,10 @@ def create_app():
     app = Flask(__name__)
     app.secret_key = 'zapachi_puro_ct'
 
-    app.config['MYSQL_HOST'] = 'localhost'
-    app.config['MYSQL_USER'] = 'root'
-    app.config['MYSQL_PASSWORD'] = '050503'
-    app.config['MYSQL_DB'] = 'zapachi_db'
+    app.config['MYSQL_HOST'] = 'Zapachi.mysql.pythonanywhere-services.com'
+    app.config['MYSQL_USER'] = 'Zapachi'
+    app.config['MYSQL_PASSWORD'] = 'Bash2149'
+    app.config['MYSQL_DB'] = 'Zapachi$Zproductos_db'
 
     mysql.init_app(app)
 
